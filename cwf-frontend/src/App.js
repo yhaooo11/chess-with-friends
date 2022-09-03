@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <div>
-      <Chessboard position={board.getPiecesToString()} id="BasicBoard" boardOrientation={'black'}/>
+      <Chessboard position={board.getPiecesToString()} id="BasicBoard" />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import numToLetterMap from "./enums/Algebraic";
+
 export default class Tile {
     constructor(row, column, piece=null) {
         this.piece = piece;

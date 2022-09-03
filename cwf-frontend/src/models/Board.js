@@ -93,6 +93,7 @@ export default class Board {
             if (value.piece === null) {
                 copyTiles[key] = '';
             } else {
+                value.piece.getValidMoves(this, value)
                 copyTiles[key] = value.piece.getInitials();
             }
         }
