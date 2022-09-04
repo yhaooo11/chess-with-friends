@@ -1,3 +1,4 @@
+
 export default class Tile {
     constructor(row, column, piece=null) {
         this.row = row;
