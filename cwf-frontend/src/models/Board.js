@@ -1,11 +1,13 @@
 import { Color } from "./enums/Color";
 import Tile from "./Tile";
-import Rook from "./pieces/Rook";
-import Bishop from "./pieces/Bishop";
+
 import King from "./pieces/King";
 import Queen from "./pieces/Queen";
-import Pawn from "./pieces/Pawn";
+import Rook from "./pieces/Rook";
+import Bishop from "./pieces/Bishop";
 import Knight from "./pieces/Knight";
+import Pawn from "./pieces/Pawn";
+
 
 
 export default class Board {
