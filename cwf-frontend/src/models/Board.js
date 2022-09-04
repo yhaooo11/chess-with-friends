@@ -1,4 +1,4 @@
-import { COLOR } from "./enums/Color";
+import { Color } from "./enums/Color";
 import Tile from "./Tile";
 import Rook from "./pieces/Rook";
 import Bishop from "./pieces/Bishop";
@@ -12,24 +12,24 @@ export default class Board {
     constructor() {
         this.tiles = [
             [
-                new Tile(0, 0, new Rook(COLOR.black)),
-                new Tile(0, 1, new Knight(COLOR.black)),
-                new Tile(0, 2, new Bishop(COLOR.black)),
-                new Tile(0, 3, new Queen(COLOR.black)),
-                new Tile(0, 4, new King(COLOR.black)),
-                new Tile(0, 5, new Bishop(COLOR.black)),
-                new Tile(0, 6, new Knight(COLOR.black)),
-                new Tile(0, 7, new Rook(COLOR.black))
+                new Tile(0, 0, new Rook(Color.BLACK)),
+                new Tile(0, 1, new Knight(Color.BLACK)),
+                new Tile(0, 2, new Bishop(Color.BLACK)),
+                new Tile(0, 3, new Queen(Color.BLACK)),
+                new Tile(0, 4, new King(Color.BLACK)),
+                new Tile(0, 5, new Bishop(Color.BLACK)),
+                new Tile(0, 6, new Knight(Color.BLACK)),
+                new Tile(0, 7, new Rook(Color.BLACK))
             ],
             [
-                new Tile(1, 0, new Pawn(COLOR.black)),
-                new Tile(1, 1, new Pawn(COLOR.black)),
-                new Tile(1, 2, new Pawn(COLOR.black)),
-                new Tile(1, 3, new Pawn(COLOR.black)),
-                new Tile(1, 4, new Pawn(COLOR.black)),
-                new Tile(1, 5, new Pawn(COLOR.black)),
-                new Tile(1, 6, new Pawn(COLOR.black)),
-                new Tile(1, 7, new Pawn(COLOR.black))
+                new Tile(1, 0, new Pawn(Color.BLACK)),
+                new Tile(1, 1, new Pawn(Color.BLACK)),
+                new Tile(1, 2, new Pawn(Color.BLACK)),
+                new Tile(1, 3, new Pawn(Color.BLACK)),
+                new Tile(1, 4, new Pawn(Color.BLACK)),
+                new Tile(1, 5, new Pawn(Color.BLACK)),
+                new Tile(1, 6, new Pawn(Color.BLACK)),
+                new Tile(1, 7, new Pawn(Color.BLACK))
             ],
             [
                 new Tile(2, 0),
@@ -72,28 +72,28 @@ export default class Board {
                 new Tile(5, 7)
             ],
             [
-                new Tile(6, 0, new Pawn(COLOR.white)),
-                new Tile(6, 1, new Pawn(COLOR.white)),
-                new Tile(6, 2, new Pawn(COLOR.white)),
-                new Tile(6, 3, new Pawn(COLOR.white)),
-                new Tile(6, 4, new Pawn(COLOR.white)),
-                new Tile(6, 5, new Pawn(COLOR.white)),
-                new Tile(6, 6, new Pawn(COLOR.white)),
-                new Tile(6, 7, new Pawn(COLOR.white))
+                new Tile(6, 0, new Pawn(Color.WHITE)),
+                new Tile(6, 1, new Pawn(Color.WHITE)),
+                new Tile(6, 2, new Pawn(Color.WHITE)),
+                new Tile(6, 3, new Pawn(Color.WHITE)),
+                new Tile(6, 4, new Pawn(Color.WHITE)),
+                new Tile(6, 5, new Pawn(Color.WHITE)),
+                new Tile(6, 6, new Pawn(Color.WHITE)),
+                new Tile(6, 7, new Pawn(Color.WHITE))
             ],
             [
-                new Tile(7, 0, new Rook(COLOR.white)),
-                new Tile(7, 1, new Knight(COLOR.white)),
-                new Tile(7, 2, new Bishop(COLOR.white)),
-                new Tile(7, 3, new Queen(COLOR.white)),
-                new Tile(7, 4, new King(COLOR.white)),
-                new Tile(7, 5, new Bishop(COLOR.white)),
-                new Tile(7, 6, new Knight(COLOR.white)),
-                new Tile(7, 7, new Rook(COLOR.white))
+                new Tile(7, 0, new Rook(Color.WHITE)),
+                new Tile(7, 1, new Knight(Color.WHITE)),
+                new Tile(7, 2, new Bishop(Color.WHITE)),
+                new Tile(7, 3, new Queen(Color.WHITE)),
+                new Tile(7, 4, new King(Color.WHITE)),
+                new Tile(7, 5, new Bishop(Color.WHITE)),
+                new Tile(7, 6, new Knight(Color.WHITE)),
+                new Tile(7, 7, new Rook(Color.WHITE))
             ]
         ];
     }
-    
+
     // turns the pieces object in the tiles field to strings
     // to be used for react-chessboard in order to render 
     getPiecesToString() {

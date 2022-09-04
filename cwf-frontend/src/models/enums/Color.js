@@ -1,4 +1,4 @@
-export const COLOR = {
-    white: 'w',
-    black: 'b'
+export const Color = {
+    WHITE: 'w',
+    BLACK: 'b'
 }
