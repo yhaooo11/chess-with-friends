@@ -15,7 +15,7 @@ export default class Board {
             b1: new Tile(7, 1, new Knight(COLOR.white)),
             c1: new Tile(7, 2, new Bishop(COLOR.white)),
             d1: new Tile(7, 3, new Queen(COLOR.white)),
-            e1: new Tile(7, 4, new King(COLOR. white)),
+            e1: new Tile(7, 4, new King(COLOR.white)),
             f1: new Tile(7, 5, new Bishop(COLOR.white)),
             g1: new Tile(7, 6, new Knight(COLOR.white)),
             h1: new Tile(7, 7, new Rook(COLOR.white)),
@@ -83,6 +83,7 @@ export default class Board {
             g8: new Tile(0, 6, new Knight(COLOR.black)),
             h8: new Tile(0, 7, new Rook(COLOR.black)),
         }
+
     }
     // turns the pieces object in the tiles field to strings
     // to be used for react-chessboard in order to render 
@@ -97,9 +98,6 @@ export default class Board {
                 copyTiles[key] = value.piece.getInitials();
             }
         }
-
-        console.log(copyTiles);
-
         return copyTiles;
     }
 }
