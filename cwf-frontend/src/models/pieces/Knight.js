@@ -13,18 +13,5 @@ export default class Knight extends Piece {
         console.log(validMoves)
         return validMoves;
     }
-    toChessCoords(move) {
-         const letterMap = {
-            0: 'a',
-            1: 'b',
-            2: 'c',
-            3: 'd',
-            4: 'e',
-            5: 'f',
-            6: 'g',
-            7: 'h'
-        }
 
-        return "" + letterMap[move[1]] + (8 - move[0]);
-    }
 }

@@ -93,6 +93,7 @@ export default class Board {
             ]
         ];
     }
+    
     // turns the pieces object in the tiles field to strings
     // to be used for react-chessboard in order to render 
     getPiecesToString() {

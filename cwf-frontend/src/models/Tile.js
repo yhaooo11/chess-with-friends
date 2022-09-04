@@ -5,7 +5,7 @@ export default class Tile {
         this.column = column;
         this.piece = piece;
     }
-    // converts (x,y) to algebraic notation (eg. a1) 
+    // converts row, col to algebraic notation (eg. a1) 
     toChessCoords() {
         const letterMap = {
             0: 'a',
@@ -18,6 +18,6 @@ export default class Tile {
             7: 'h'
         }
 
-        return "" + letterMap[this.column] + (8 - this.row);
+        return letterMap[this.column] + (8 - this.row);
     }
 }
