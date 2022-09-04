@@ -11,6 +11,6 @@ export default class Piece {
     }
     // returns initial of piece (eg. white king = wK)
     getInitials() {
-
+        throw new Error("Method getInitials() must be implemented.");
     }
 }
