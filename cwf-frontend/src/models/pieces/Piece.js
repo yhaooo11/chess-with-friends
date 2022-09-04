@@ -11,7 +11,7 @@ export default class Piece {
     }
     // returns initial of piece (eg. white king = wK)
     getInitials() {
-
+        throw new Error("Method getInitials() must be implemented.");
     }
     isInBounds(position) {
         return position[0] <= 7 && position[0] >= 0 && position[1] <= 7 && position[1] >= 0;
