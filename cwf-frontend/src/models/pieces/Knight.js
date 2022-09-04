@@ -10,7 +10,6 @@ export default class Knight extends Piece {
             const algebraicMove = this.toChessCoords(move);
             return board.tiles[algebraicMove].piece === null || board.tiles[algebraicMove].piece.color !== this.color
         });
-        console.log(validMoves)
         return validMoves;
     }
     toChessCoords(move) {

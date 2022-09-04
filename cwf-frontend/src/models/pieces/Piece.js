@@ -7,7 +7,7 @@ export default class Piece {
     }
     // returns array of positions of all valid moves in algebraic notation (eg. ['a1', 'b2', ...])
     getValidMoves() {
-        //throw new Error("Method validMove() must be implemented.");
+        throw new Error("Method validMove() must be implemented.");
     }
     // returns initial of piece (eg. white king = wK)
     getInitials() {
