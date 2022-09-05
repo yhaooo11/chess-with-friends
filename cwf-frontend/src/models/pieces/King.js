@@ -38,7 +38,7 @@ export default class King extends Piece {
      * 
      * @param {Board} board - The board this piece is on
      * @param {Tile} currentTile - The tile this piece is on
-     * @returns {int[][]|null} 2D array of board positions [[row, col], [row, col], ...] or null if no valid moves
+     * @returns {int[][]} 2D array of board positions [[row, col], [row, col], ...] (can be empty)
      * 
      * @example "[[0, 1], [1, 0], [1, 1]]"
      */
@@ -59,7 +59,7 @@ export default class King extends Piece {
      * 
      * @param {Board} board  - The board this piece is on
      * @param {Color} playerColor - The color/player this piece belongs to
-     * @returns {boolean[][]} indicies that are true are not under attack by any enemy pieces
+     * @returns {boolean[][]} indicies that are true are not under attack by any enemy pieces (can be empty)
      * 
      * @example
      * [[f, f, f, f, f, f, f, f],
