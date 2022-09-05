@@ -119,4 +119,8 @@ export default class Board {
     isTileOccupied(row, col) {
         return this.tiles[row][col].piece !== null;
     }
+
+    getPiece(row, col) {
+        return this.tiles[row][col].piece;
+    }
 }
