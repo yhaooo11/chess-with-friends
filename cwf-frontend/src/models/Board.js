@@ -58,7 +58,7 @@ export default class Board {
                 new Tile(4, 0),
                 new Tile(4, 1),
                 new Tile(4, 2),
-                new Tile(4, 3, new Bishop(Color.WHITE)),
+                new Tile(4, 3),
                 new Tile(4, 4),
                 new Tile(4, 5),
                 new Tile(4, 6),
