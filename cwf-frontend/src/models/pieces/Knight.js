@@ -10,10 +10,12 @@ export default class Knight extends Piece {
         const validMoves = moves.map(move => 
             [currentTile.row + move[0], currentTile.column + move[1]]).filter(move => 
                 this.isInBounds(move)).filter(move => {
-                    const algebraicMove = this.toChessCoords(move);
-                    return board.tiles[algebraicMove].piece === null || board.tiles[algebraicMove].piece.color !== this.color;
+                    const row = move[0]
+                    const column = move[1]
+                    // empty square or not same color
+                    return !board.isTileOccupied(row, column) || board.getPiece(row, column).color !== this.color;
         });
-
+        
         return validMoves;
     }
 }
