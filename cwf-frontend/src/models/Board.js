@@ -1,4 +1,7 @@
 import { Color } from "./enums/Color";
+import { NoPieceThereException } from "./exceptions/NoPieceThereException"
+import { PositionOutOfBoundsException } from "./exceptions/PositionOutOfBoundsException";
+
 import Tile from "./Tile";
 
 import King from "./pieces/King";
@@ -8,10 +11,9 @@ import Bishop from "./pieces/Bishop";
 import Knight from "./pieces/Knight";
 import Pawn from "./pieces/Pawn";
 
-
-
 export default class Board {
     constructor() {
+        this.BOARD_MAX_INDEX = 7;
         this.SIZE = 8;
         this.tiles = [
             [
@@ -97,8 +99,14 @@ export default class Board {
         ];
     }
 
-    // turns the pieces object in the tiles field to strings
-    // to be used for react-chessboard in order to render 
+    /**
+     * Turns the pieces object in the tiles field to strings
+     * 
+     * @returns {dict} dictionary corresponding to be used by react-chessboard to render the board
+     * 
+     * @example
+     * {a1: "wR", a2: "wP", a3: "", a4: "", a5: "", a6: "", a7: "bP", a8: "bR", ... (continue for all columns)}
+     */
     getPiecesToString() {
         const copyTiles = [...this.tiles];
         const result = {};
@@ -117,11 +125,77 @@ export default class Board {
         return result;
     }
 
+    /**
+     * Return true if a piece is at given position, false otherwise
+     * 
+     * @throws {PositionOutOfBoundsException} - Position must be a valid board index
+     * @param {int} row 
+     * @param {int} col 
+     * @returns {boolean}
+     */
     isTileOccupied(row, col) {
+        this.checkPositionIsValid(row, col);
         return this.tiles[row][col].piece !== null;
     }
 
+    /**
+     * Return the piece at a given position, null if none exists
+     * 
+     * @throws {PositionOutOfBoundsException} - Position must be a valid board index
+     * @param {int} row 
+     * @param {int} col 
+     * @returns {Piece | null} The piece or null
+     */
     getPiece(row, col) {
+        this.checkPositionIsValid(row, col);
         return this.tiles[row][col].piece;
+    }
+
+    /**
+     * Return the Tile at a given position
+     * 
+     * @throws {PositionOutOfBoundsException} - Position must be a valid board index
+     * @param {int} row 
+     * @param {int} col 
+     * @returns {Tile}
+     */
+    getTile(row, col) {
+        this.checkPositionIsValid(row, col);
+        return this.tiles[row][col];
+    }
+
+    /** 
+     * Set current tile's piece to null, replace new tile with old tile's piece
+     * 
+     * @throws {PositionOutOfBoundsException, NoPieceThereException} - Positions must be a valid board index and a piece must be on starting square
+     * @param {int} startRow 
+     * @param {int} startCol 
+     * @param {int} newRow 
+     * @param {int} newCol 
+     */
+    movePiece(startRow, startCol, newRow, newCol) {
+        this.checkPositionIsValid(startRow, startCol);
+        this.checkPositionIsValid(newRow, newCol);
+        let tile = this.getTile(startRow, startCol);
+        if (tile.piece == null) {
+            throw new NoPieceThereException("Position: [" + startRow + ", " + startCol + "] has no Piece to move")
+        }
+        let newTile = this.getTile(newRow, newCol);
+        let piece = tile.piece;
+        tile.removePiece();
+        newTile.addPiece(piece);
+    }
+
+    /**
+     * Throw PositionOutOfBoundsException if position not within the board
+     *  
+     * @throws {PositionOutOfBoundsException}
+     * @param {int} row 
+     * @param {int} col 
+     */
+    checkPositionIsValid(row, col) {
+        if (row < 0 || col < 0 || row > this.BOARD_MAX_INDEX || col > this.BOARD_MAX_INDEX) {
+            throw new PositionOutOfBoundsException("Position: [" + row + ", " + col + "] not within board boundaries");
+        }
     }
 }

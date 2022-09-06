@@ -20,4 +20,20 @@ export default class Tile {
 
         return letterMap[this.column] + (8 - this.row);
     }
+
+    /**
+     * Sets piece in this tile to null
+     */
+    removePiece() {
+        this.piece = null;
+    }
+
+    /**
+     * Set this tile's piece
+     * 
+     * @param {Piece} piece - piece to added to this tile
+     */
+    addPiece(piece) {
+        this.piece = piece;
+    }
 }
