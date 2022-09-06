@@ -4,7 +4,7 @@ import { defaultBoard, noPawnsBoard, blackCheckmated, blackInCheck, whiteCheckma
 
 export default function App() {
 
-  let board = blackInCheck;
+  let board = defaultBoard;
 
   return (
     <div>

@@ -1,4 +1,5 @@
 import Board from "../Board";
+import { NoPieceThereException } from "../exceptions/NoPieceThereException";
 import { PositionOutOfBoundsException } from "../exceptions/PositionOutOfBoundsException";
 import Pawn from "../pieces/Pawn";
 import Rook from "../pieces/Rook";
@@ -55,6 +56,13 @@ test("Move Piece to Invalid Row", () => {
 test("Move Piece to Invalid Col", () => {
     let board = new Board();
     expect(() => {board.movePiece(6, 2, 1, -1)}).toThrow(PositionOutOfBoundsException);
+    expect(() => {board.movePiece(6, 2, 1, board.BOARD_MAX_INDEX + 1)}).toThrow(PositionOutOfBoundsException);
+    expect(board.getPiece(6, 2)).toBeInstanceOf(Pawn);
+});
+
+test("Move Piece not there", () => {
+    let board = new Board();
+    expect(() => {board.movePiece(4, 2, 1, 2)}).toThrow(NoPieceThereException);
     expect(() => {board.movePiece(6, 2, 1, board.BOARD_MAX_INDEX + 1)}).toThrow(PositionOutOfBoundsException);
     expect(board.getPiece(6, 2)).toBeInstanceOf(Pawn);
 });

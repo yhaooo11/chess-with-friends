@@ -1,5 +1,7 @@
 import { Color } from "./enums/Color";
+import { NoPieceThereException } from "./exceptions/NoPieceThereException"
 import { PositionOutOfBoundsException } from "./exceptions/PositionOutOfBoundsException";
+
 import Tile from "./Tile";
 
 import King from "./pieces/King";
@@ -159,7 +161,7 @@ export default class Board {
     /** 
      * Set current tile's piece to null, replace new tile with old tile's piece
      * 
-     * @throws {PositionOutOfBoundsException} - Positions must be a valid board index
+     * @throws {PositionOutOfBoundsException, NoPieceThereException} - Positions must be a valid board index and a piece must be on starting square
      * @param {int} startRow 
      * @param {int} startCol 
      * @param {int} newRow 
@@ -169,6 +171,9 @@ export default class Board {
         this.checkPositionIsValid(startRow, startCol);
         this.checkPositionIsValid(newRow, newCol);
         let tile = this.getTile(startRow, startCol);
+        if (tile.piece == null) {
+            throw new NoPieceThereException("Position: [" + startRow + ", " + startCol + "] has no Piece to move")
+        }
         let newTile = this.getTile(newRow, newCol);
         let piece = tile.piece;
         tile.removePiece();
@@ -184,7 +189,7 @@ export default class Board {
      */
     checkPositionIsValid(row, col) {
         if (row < 0 || col < 0 || row > this.BOARD_MAX_INDEX || col > this.BOARD_MAX_INDEX) {
-            throw new PositionOutOfBoundsException("Position: [" + row + ", " + col + "] not within board");
+            throw new PositionOutOfBoundsException("Position: [" + row + ", " + col + "] not within board boundaries");
         }
     }
 }
