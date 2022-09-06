@@ -40,7 +40,7 @@ export default class King extends Piece {
      * @param {Tile} currentTile - The tile this piece is on
      * @returns {int[][]} 2D array of board positions [[row, col], [row, col], ...] (can be empty)
      * 
-     * @example "[[0, 1], [1, 0], [1, 1]]"
+     * @example "[[3, 3], [3, 1], [2, 2]]"
      */
     getValidMoves(board, currentTile) {
         const moves = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [0, -1], [-1, -1], [-1, 0]];
