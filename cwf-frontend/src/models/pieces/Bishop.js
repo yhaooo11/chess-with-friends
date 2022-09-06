@@ -33,10 +33,10 @@ export default class Bishop extends Piece {
     getValidMoves(board, currentTile) {
 
         const moves = {
-            movesLeftUp: [[-1, -1], [-2,-2], [-3, -3], [-4, -4]],
-            movesRightUp: [[-1, 1], [-2, 2], [-3, 3], [-4, 4]],
-            movesLeftDown: [[1, -1], [2, -2], [3, -3], [4, -4]],
-            movesRightDown: [[1, 1], [2, 2], [3, 3], [4, 4]]
+            movesLeftUp: [[-1, -1], [-2,-2], [-3, -3], [-4, -4], [-5, -5], [-6, -6], [-7, -7]],
+            movesRightUp: [[-1, 1], [-2, 2], [-3, 3], [-4, 4], [-5, 5], [-6, 6], [-7, 7]],
+            movesLeftDown: [[1, -1], [2, -2], [3, -3], [4, -4], [5, -5], [6, -6], [7, -7]],
+            movesRightDown: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7]]
         }
 
         let validMoves = []
