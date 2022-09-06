@@ -1,16 +1,42 @@
 import Piece from "./Piece";
 
+/**
+ * The Bishop piece in Chess
+ * 
+ * @classdesc {Object} Bishop extends Piece
+ * @property {Color} color - Color this piece belongs to
+ */
 export default class Bishop extends Piece {
+
+    /**
+     * Get the encoding corresponding to this piece color and name
+     * 
+     * @returns {string} the piece initials
+     * 
+     * @example "bB" - Black Bishop
+     * @example "wB" - White Bishop
+     */
     getInitials() {
         return this.color + 'B';
     }
+
+    /**
+     * Determine all board positions this piece can move to without violating the following chess rules: 1 - can only move diagonally. 
+     * 2 - cannot jump over intervening pieces.
+     * 
+     * @param {Board} board - The board this piece is on
+     * @param {Tile} currentTile - The tile this piece is on
+     * @returns {int[][]} 2D array of board positions [[row, col], [row, col], ...] (can be empty)
+     * 
+     * @example "[[0, 1], [1, 0], [1, 1]]"
+     */
     getValidMoves(board, currentTile) {
 
         const moves = {
-            movesLeftUp: [[-1, -1], [-2,-2], [-3, -3], [-4, -4]],
-            movesRightUp: [[-1, 1], [-2, 2], [-3, 3], [-4, 4]],
-            movesLeftDown: [[1, -1], [2, -2], [3, -3], [4, -4]],
-            movesRightDown: [[1, 1], [2, 2], [3, 3], [4, 4]]
+            movesLeftUp: [[-1, -1], [-2,-2], [-3, -3], [-4, -4], [-5, -5], [-6, -6], [-7, -7]],
+            movesRightUp: [[-1, 1], [-2, 2], [-3, 3], [-4, 4], [-5, 5], [-6, 6], [-7, 7]],
+            movesLeftDown: [[1, -1], [2, -2], [3, -3], [4, -4], [5, -5], [6, -6], [7, -7]],
+            movesRightDown: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7]]
         }
 
         let validMoves = []
