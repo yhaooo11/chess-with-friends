@@ -14,6 +14,7 @@ import Pawn from "./pieces/Pawn";
 export default class Board {
     constructor() {
         this.BOARD_MAX_INDEX = 7;
+        this.SIZE = 8;
         this.tiles = [
             [
                 new Tile(0, 0, new Rook(Color.BLACK)),
