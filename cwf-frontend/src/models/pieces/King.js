@@ -51,7 +51,6 @@ export default class King extends Piece {
                     // empty square or not same color
                     return !board.isTileOccupied(row, column) || board.getPiece(row, column).color !== this.color;
         });
-
         return validMoves;
     }
 

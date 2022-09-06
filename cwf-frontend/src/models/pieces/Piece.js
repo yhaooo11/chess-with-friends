@@ -6,8 +6,16 @@ export default class Piece {
         }
     }
 
-    // returns array of positions of all valid moves in algebraic notation (eg. ['a1', 'b2', ...])
-    getValidMoves() {
+    /**
+     * Determine all board positions this piece can move to without violating any chess rules
+     * 
+     * @param {Board} board - The board this piece is on
+     * @param {Tile} currentTile - The tile this piece is on
+     * @returns {int[][]} 2D array of board positions [[row, col], [row, col], ...] (can be empty)
+     * 
+     * @example "[[3, 3], [3, 1], [2, 2]]"
+     */
+    getValidMoves(board, currentTile) {
         throw new Error("Method getValidMove() must be implemented.");
     }
 

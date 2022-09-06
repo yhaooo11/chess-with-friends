@@ -1,5 +1,20 @@
+/**
+ * A Tile on the Chess Board
+ * 
+ * @classdesc {Object} Tile
+ * @property {int} row - row this tile is on
+ * @property {int} column - column this tile is on
+ * @property {Piece|null} piece - the chess piece on this tile
+ */
 export default class Tile {
-    constructor(row, column, piece=null) {
+    /**
+     * Construct tile at given position with optional starting piece
+     * 
+     * @param {int} row - row this tile is on
+     * @param {int} column - column this tile is on
+     * @param {Piece} piece - the chess piece on this tile
+     */
+    constructor(row, column, piece = null) {
         this.row = row;
         this.column = column;
         this.piece = piece;
@@ -19,6 +34,14 @@ export default class Tile {
         };
 
         return letterMap[this.column] + (8 - this.row);
+    }
+
+    /**
+     * 
+     * @returns {Piece} piece on this tile
+     */
+    getPiece() {
+        return this.piece;
     }
 
     /**

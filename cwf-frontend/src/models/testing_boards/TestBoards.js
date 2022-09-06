@@ -138,4 +138,10 @@ canCastleBlack.movePiece(1, 2, 2, 2);
 canCastleBlack.movePiece(6, 3, 5, 3);
 canCastleBlack.movePiece(7, 2, 4, 5);
 
-export {canCastleBlack, cannotCastleBlack, blackStalemate, noPawnsBoard, blackCheckmated, blackInCheck, whiteCheckmated, whiteInCheck, piecesInMiddle, cannotCastle, canCastle};
+let kingMoveByCapture = new Board();
+kingMoveByCapture.movePiece(6, 4, 5, 4);
+kingMoveByCapture.movePiece(7, 4, 6, 4);
+kingMoveByCapture.movePiece(1, 4, 2, 4);
+kingMoveByCapture.movePiece(0, 3, 6, 5);
+
+export {kingMoveByCapture, canCastleBlack, cannotCastleBlack, blackStalemate, noPawnsBoard, blackCheckmated, blackInCheck, whiteCheckmated, whiteInCheck, piecesInMiddle, cannotCastle, canCastle};
