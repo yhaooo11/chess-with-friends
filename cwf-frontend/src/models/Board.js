@@ -98,8 +98,14 @@ export default class Board {
         ];
     }
 
-    // turns the pieces object in the tiles field to strings
-    // to be used for react-chessboard in order to render 
+    /**
+     * Turns the pieces object in the tiles field to strings
+     * 
+     * @returns {dict} dictionary corresponding to be used by react-chessboard to render the board
+     * 
+     * @example
+     * {a1: "wR", a2: "wP", a3: "", a4: "", a5: "", a6: "", a7: "bP", a8: "bR", ... (continue for all columns)}
+     */
     getPiecesToString() {
         const copyTiles = [...this.tiles];
         const result = {};
@@ -157,7 +163,6 @@ export default class Board {
         return this.tiles[row][col];
     }
 
-    // TODO: make sure  there is a piece there
     /** 
      * Set current tile's piece to null, replace new tile with old tile's piece
      * 

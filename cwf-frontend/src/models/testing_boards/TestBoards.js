@@ -1,4 +1,9 @@
 import Board from '../Board';
+import King from '../pieces/King';
+import { Color } from "../enums/Color";
+import Pawn from '../pieces/Pawn';
+import Queen from '../pieces/Queen';
+import Rook from '../pieces/Rook';
 
 // See https://docs.google.com/document/d/1YDknnQyAA1lH7RgMLXDRaDaQvfOZepjNN-Is8aK10nI/edit?usp=sharing
 // for visualization
@@ -8,10 +13,7 @@ let noPawnsBoard = new Board();
 for (let i = 0; i <= noPawnsBoard.BOARD_MAX_INDEX; i++) {
     let tile = noPawnsBoard.getTile(1, i);
     tile.removePiece();
-}
-
-for (let i = 0; i <= noPawnsBoard.BOARD_MAX_INDEX; i++) {
-    let tile = noPawnsBoard.getTile(6, i);
+    tile = noPawnsBoard.getTile(6, i);
     tile.removePiece();
 }
 
@@ -89,10 +91,51 @@ piecesInMiddle.movePiece(7, 4, 7, 6);
 piecesInMiddle.movePiece(7, 7, 5, 4);
 piecesInMiddle.movePiece(6, 5, 5, 5);
 
+let cannotCastle = new Board();
+cannotCastle.getTile(7, 5).removePiece();
+cannotCastle.getTile(7, 6).removePiece();
+cannotCastle.movePiece(0, 2, 5, 7);
+cannotCastle.movePiece(1, 3, 2, 3);
+cannotCastle.movePiece(6, 6, 5, 6);
 
+let canCastle = new Board();
+canCastle.getTile(7, 5).removePiece();
+canCastle.getTile(7, 6).removePiece();
+canCastle.movePiece(0, 2, 2, 2);
+canCastle.movePiece(1, 3, 2, 3);
+canCastle.movePiece(6, 6, 5, 6);
 
+let blackStalemate = new Board();
+for (let i = 0; i <= blackStalemate.BOARD_MAX_INDEX; i++) {
+    let tile = blackStalemate.getTile(0, i);
+    tile.removePiece();
+    tile = blackStalemate.getTile(1, i);
+    tile.removePiece();
+    tile = blackStalemate.getTile(6, i);
+    tile.removePiece();
+    tile = blackStalemate.getTile(7, i);
+    tile.removePiece();
+}
+blackStalemate.getTile(0, 1).addPiece(new King(Color.BLACK));
+blackStalemate.getTile(1, 1).addPiece(new Pawn(Color.BLACK));
+blackStalemate.getTile(1, 3).addPiece(new Queen(Color.WHITE));
+blackStalemate.getTile(2, 1).addPiece(new Pawn(Color.WHITE));
+blackStalemate.getTile(7, 0).addPiece(new Rook(Color.BLACK));
 
+let cannotCastleBlack = new Board();
+cannotCastleBlack.getTile(0, 1).removePiece();
+cannotCastleBlack.getTile(0, 2).removePiece();
+cannotCastleBlack.getTile(0, 3).removePiece();
+cannotCastleBlack.movePiece(1, 4, 2, 4);
+cannotCastleBlack.movePiece(6, 3, 5, 3);
+cannotCastleBlack.movePiece(7, 2, 3, 6);
 
+let canCastleBlack = new Board();
+canCastleBlack.getTile(0, 1).removePiece();
+canCastleBlack.getTile(0, 2).removePiece();
+canCastleBlack.getTile(0, 3).removePiece();
+canCastleBlack.movePiece(1, 2, 2, 2);
+canCastleBlack.movePiece(6, 3, 5, 3);
+canCastleBlack.movePiece(7, 2, 4, 5);
 
-
-export {noPawnsBoard, blackCheckmated, blackInCheck, whiteCheckmated, whiteInCheck, piecesInMiddle};
+export {canCastleBlack, cannotCastleBlack, blackStalemate, noPawnsBoard, blackCheckmated, blackInCheck, whiteCheckmated, whiteInCheck, piecesInMiddle, cannotCastle, canCastle};
