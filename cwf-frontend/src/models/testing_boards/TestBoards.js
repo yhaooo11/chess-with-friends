@@ -4,6 +4,7 @@ import { Color } from "../enums/Color";
 import Pawn from '../pieces/Pawn';
 import Queen from '../pieces/Queen';
 import Rook from '../pieces/Rook';
+import Knight from '../pieces/Knight';
 
 // See https://docs.google.com/document/d/1YDknnQyAA1lH7RgMLXDRaDaQvfOZepjNN-Is8aK10nI/edit?usp=sharing
 // for visualization
@@ -116,11 +117,12 @@ for (let i = 0; i <= blackStalemate.BOARD_MAX_INDEX; i++) {
     tile = blackStalemate.getTile(7, i);
     tile.removePiece();
 }
-blackStalemate.getTile(0, 1).addPiece(new King(Color.BLACK));
-blackStalemate.getTile(1, 1).addPiece(new Pawn(Color.BLACK));
-blackStalemate.getTile(1, 3).addPiece(new Queen(Color.WHITE));
-blackStalemate.getTile(2, 1).addPiece(new Pawn(Color.WHITE));
-blackStalemate.getTile(7, 0).addPiece(new Rook(Color.BLACK));
+blackStalemate.getTile(3, 6).addPiece(new King(Color.BLACK));
+blackStalemate.getTile(4, 4).addPiece(new Knight(Color.BLACK));
+blackStalemate.getTile(5, 6).addPiece(new Knight(Color.BLACK));
+blackStalemate.getTile(6, 0).addPiece(new Queen(Color.BLACK));
+blackStalemate.getTile(7, 1).addPiece(new Queen(Color.BLACK));
+blackStalemate.getTile(5, 7).addPiece(new King(Color.WHITE));
 
 let cannotCastleBlack = new Board();
 cannotCastleBlack.getTile(0, 1).removePiece();
@@ -138,4 +140,16 @@ canCastleBlack.movePiece(1, 2, 2, 2);
 canCastleBlack.movePiece(6, 3, 5, 3);
 canCastleBlack.movePiece(7, 2, 4, 5);
 
-export {canCastleBlack, cannotCastleBlack, blackStalemate, noPawnsBoard, blackCheckmated, blackInCheck, whiteCheckmated, whiteInCheck, piecesInMiddle, cannotCastle, canCastle};
+export {
+    canCastleBlack, 
+    cannotCastleBlack, 
+    blackStalemate, 
+    noPawnsBoard, 
+    blackCheckmated, 
+    blackInCheck, 
+    whiteCheckmated, 
+    whiteInCheck, 
+    piecesInMiddle, 
+    cannotCastle, 
+    canCastle
+};
